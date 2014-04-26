@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Controllers </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <div ng-controller="example">
+        <!--<button click="click()">{{message}}</button>-->
+
+        <clicker click="handler()">{{message}}</clicker>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+    angular.module("myApp", [])
+//            .directive('click', function () {
+//                return { restrict: 'A',
+//                    link: function (scope, element, attrs) {
+//                        element.bind('click', function () {
+//                            scope.$eval(attrs.click);
+//                        });
+//                    }}
+//            })
+            .directive('clicker', function () {
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    transclude: true,
+                    template: '<button ng-transclude></button>',
+                    link: function (scope, element, attrs) {
+                        console.log(attrs);
+                        element.bind('click', function () {
+                           // alert('test');
+                            scope.$eval("handler()");
+                            //scope.$eval(attrs.click);
+                        });
+                    }
+                }
+            })
+            .controller("example", function ($scope) {
+
+                $scope.message = "Message from handler!";
+//                $scope.click = function () {
+               // $scope.message = "Hello!";
+//                    alert($scope.message);
+//                }
+
+                $scope.handler=function(){
+
+                  alert($scope.message);
+                }
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Module </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <div ng-controller="example">
+        {{name}}
+    </div>
+
+
+</section>
+<script type="text/javascript">
+
+    angular.module("myApp",[])
+    .controller("example",function($scope){
+        $scope.name="Example";
+    });
+
+</script>
+</body>
+</html>

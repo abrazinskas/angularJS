@@ -1,0 +1,14 @@
+<h2>Edit</h2>
+<ul>
+    <li>
+        <label for="name">Name: </label>
+        <input type="text" name="name" ng-model="contact.name" id="name"/>
+
+    </li>
+    <li>
+        <label for="number">Number:</label>
+        <input ng-model="contact.number" type="text" name="number" id="number"/>
+    </li>
+</ul>
+<a href="#/delete/{{index}}">Delete</a>
+<a href="#/">Back to list</a>

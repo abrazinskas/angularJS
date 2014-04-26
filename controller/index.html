@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Controllers </title>
+</head>
+<body>
+
+<section ng-controller="Ctrl">
+    <h1>{{name}}</h1>
+    <h2>{{age*2}}</h2>
+    <input type="text" ng-model="name" name="name"/>
+</section>
+
+
+
+</body>
+<script type="text/javascript">
+    var Ctrl = function ($scope) {
+
+        $scope.name="Arthur Shade";
+        $scope.age=20;
+
+    };
+</script>
+</html>

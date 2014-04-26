@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Directives </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <div class="search">
+        <input type="search" ng-model="search"/>
+    </div>
+
+    <div ng-controller="list">
+        <ul>
+            <li ng-repeat="person in people | filter:search">
+                <span>Name: </span><b>{{person.name}}</b>
+                <span>Age: </span><b>{{person.age}}</b>
+            </li>
+        </ul>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+
+    var list = function ($scope) {
+
+        $scope.people = [
+            {name: "Tom", age: 20},
+            {name: "Jeffrey", age: 30},
+            {name: "Dan", age: 40},
+            {name: "David", age: 50}
+        ];
+
+    }
+</script>
+</body>
+</html>

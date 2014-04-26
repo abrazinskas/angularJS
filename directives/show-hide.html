@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Directives </title>
+</head>
+<body>
+<div>
+
+    <label for="name">Type your name, Sir!</label>
+    <input type="text" id="name" ng-model="name"/>
+
+    <hr>
+    <label for="show">Show?</label>
+    <input id="show" ng-model="checked" type="checkbox"/>
+</div>
+
+<div ng-show="checked">
+    The input is checked
+    <h3>Your name is: {{name||"Please type your name"}}</h3>
+</div>
+
+<div ng-hide="checked">
+    The input is unchecked
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<h2>List</h2>
+<form action="">
+
+    <fieldset>
+        <label for="search">Search:</label>
+        <input type="search" ng-model="search" id="search"/>
+    </fieldset>
+
+    <div class="items-list">
+        <ul>
+            <li ng-repeat="contact in contacts | filter:search">
+                <a href="#/contact/{{$index}}">{{contact.name}}</a>: {{contact.number}}
+            </li>
+        </ul>
+    </div>
+    <br>
+    <a href="#/add"> Add new Contact</a>
+</form>

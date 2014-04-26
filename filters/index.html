@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="../js/angular.js"></script>
+    <title>Angular - Filters </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <div ng-controller="filter">
+        <p>{{text | clean:"+"}}</p>
+    </div>
+
+
+</section>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .filter('clean',function(){
+                return function(input,separator){
+                    var regExp= new RegExp('[^a-z0-9'+(separator || '_') +']',"ig");
+                    return input.replace(/\s+/g,(separator || "_"))
+                            .toLowerCase()
+                            .replace(regExp,"");
+                }
+            })
+            .controller('filter', function ($scope) {
+                $scope.text = "Hello world this is some text!";
+            });
+</script>
+</body>
+</html>

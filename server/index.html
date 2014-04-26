@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="contacts">
+<head>
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-resource.min.js"></script>
+    <title>Angular - Server </title>
+</head>
+<body>
+<section class="wrapper">
+
+    <div ng-controller="Contacts">
+        <h1>Contacts</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+            </tr>
+            <tr>
+                <td>{{contact.name.first}} {{contact.name.last}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.number}}</td>
+
+                <td>{{contact.query()}}</td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+
+
+    angular.module('contacts',['ngResource'])
+            .factory('contact',function($resource){
+                return $resource('people.json',{},{
+                    query:{method:'GET',isArray:true}
+                });
+            })
+            .controller("Contacts",function($scope, $resource){
+
+
+            });
+</script>
+</body>
+</html>
